@@ -1,0 +1,13 @@
+.eachSlide {
+    display: flex;
+    justify-content: center;
+}
+
+.eachSlide>div {
+    width: 100%;
+}
+
+.eachSlide>div>img {
+    height: 100%;
+    object-fit: cover;
+}

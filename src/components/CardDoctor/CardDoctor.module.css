@@ -1,0 +1,117 @@
+.card {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.cardImage {
+    display: flex;
+    max-height: 540px;
+    max-width: 360px;
+    position: relative;
+}
+
+.cardInfo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.cardTitle {
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: 500;
+
+}
+
+.cardSpecialty {
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.cardDescription {
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.butWrapper {
+    width: 170px;
+}
+
+.modalDoctor {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    overflow: scroll;
+    height: 530px;
+}
+
+@media screen and (min-width: 768px) {
+    .modalDoctor {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: normal;
+    }
+}
+
+.modalDoctorMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .modalDoctorMain {
+        flex-direction: row;
+    }
+}
+
+
+.modalImage {
+    width: 100%;
+    height: fit-content;
+}
+
+@media screen and (min-width: 768px) {
+    .modalImage {
+        width: 200px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .modalDescription {
+        overflow: scroll;
+    }
+}
+
+.modalDoctorAbout {
+    width: 70%;
+
+}
+
+.doctorName {
+    text-align: center;
+}
+
+.list {
+    list-style: circle;
+    padding: revert;
+}
+
+.list li::marker {
+    color: var(--accent-color);
+}
+
+.modalButton {
+    display: flex;
+    justify-content: center
+}

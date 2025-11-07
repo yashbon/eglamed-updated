@@ -1,0 +1,28 @@
+.phoneTitle {
+    margin-bottom: 10px;
+    font-style: normal;
+}
+
+.phoneLink {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.phoneIcon {
+    width: 18px;
+    height: 18px;
+    fill: var(--accent-color);
+    transform: rotateZ(120deg);
+    transition: transform 0.3s ease;
+}
+
+.phoneLink:hover .phoneIcon,
+.phoneLink:focus .phoneIcon {
+    transform: rotateZ(20deg);
+
+}
+
+.phoneText {
+    color: var(--accent-color);
+}

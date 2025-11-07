@@ -1,0 +1,21 @@
+.aboutDoctor {
+    color: var(--text-color);
+}
+
+.aboutDoctor h4 {
+    color: var(--darken-color);
+}
+
+.list {
+    list-style: circle;
+    padding: revert;
+}
+
+.list li::marker {
+    color: var(--accent-color);
+}
+
+.modalButton {
+    display: flex;
+    justify-content: center
+}

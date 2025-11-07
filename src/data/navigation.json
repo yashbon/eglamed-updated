@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "src": "services",
+        "text": "Послуги"
+    },
+    {
+        "id": 2,
+        "src": "doctors",
+        "text": "Лікарі"
+    },
+    {
+        "id": 3,
+        "src": "about",
+        "text": "Про нас"
+    },
+    {
+        "id": 4,
+        "src": "pricelist",
+        "text": "Ціни"
+    },
+    {
+        "id": 6,
+        "src": "contacts",
+        "text": "Контакти"
+    }
+]

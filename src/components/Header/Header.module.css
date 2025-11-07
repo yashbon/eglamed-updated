@@ -1,0 +1,22 @@
+.header {
+    @media (min-width: 768px) {
+        position: static;
+        height: auto;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+}
+
+/* 
+.progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    margin-bottom: 5px;
+    background: green;
+    transform-origin: 0%;
+    z-index: 11111;
+} */

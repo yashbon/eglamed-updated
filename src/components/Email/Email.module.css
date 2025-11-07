@@ -1,0 +1,27 @@
+.emailTitle {
+    margin-bottom: 10px;
+    font-style: normal;
+}
+
+.emailIcon {
+    width: 18px;
+    height: 18px;
+    fill: var(--accent-color);
+    transition: transform 0.6s ease;
+}
+
+.emailText {
+    color: var(--accent-color);
+}
+
+.emailLink {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.emailLink:hover .emailIcon,
+.emailLink:focus .emailIcon {
+    transform: rotateY(360deg);
+
+}

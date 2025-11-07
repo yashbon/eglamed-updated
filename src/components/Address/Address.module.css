@@ -1,0 +1,28 @@
+.addressTitle {
+    margin-bottom: 10px;
+    font-style: normal;
+}
+
+.addressIcon {
+    width: 18px;
+    height: 18px;
+    fill: var(--accent-color);
+    transition: transform 0.3s ease;
+    transform-origin: 40% 0%;
+}
+
+.addressText {
+    color: var(--accent-color);
+    font-style: normal;
+}
+
+.addressLink {
+    display: flex;
+    gap: 15px;
+    align-items: baseline;
+}
+
+.addressLink:hover .addressIcon,
+.addressLink:focus .addressIcon {
+    transform: rotateY(180deg);
+}

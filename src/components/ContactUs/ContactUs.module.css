@@ -1,0 +1,43 @@
+.sectionContacts {
+    padding: 110px 0;
+}
+
+.contactsContent {
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.adressWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.adressWrapper>.div {
+    width: 30%;
+}
+
+.mapWrapper {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .contactsContent {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mapWrapper {
+        width: 80%;
+        flex-direction: row;
+    }
+
+    .adressWrapper {
+        width: 80%;
+        flex-direction: row;
+    }
+}
