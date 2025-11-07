@@ -41,8 +41,7 @@ const CallForm = () => {
     }, [context]);
 
     useEffect(() => {
-        const storedData =
-            JSON.parse(window.localStorage.getItem(LS_KEY)) || initialValues;
+        const storedData = JSON.parse(window.localStorage.getItem(LS_KEY)) || initialValues;
         setData(storedData);
     }, [setData]);
 
@@ -74,10 +73,7 @@ const CallForm = () => {
                 position: "top-center",
             });
         } else if (!policy) {
-            toast.error(
-                `Поставте "V" у полі "Погоджуюся з Політикою конфіденційності"`,
-                { duration: 3000, position: "top-center" }
-            );
+            toast.error(`Поставте "V" у полі "Погоджуюся з Політикою конфіденційності"`, { duration: 3000, position: "top-center" });
         } else if (!token) {
             toast.error(`Поставте "V" у полі "Я не робот"`, {
                 duration: 3000,
@@ -106,8 +102,7 @@ const CallForm = () => {
                                 toast.success("Дані відправлено успішно!");
                             })
                             .catch((error) => {
-                                const errorMessage =
-                                    "Ой! Щось пішло не так :( Перезавантажте сторінку та спробуйте ще раз.\n";
+                                const errorMessage = "Ой! Щось пішло не так :( Перезавантажте сторінку та спробуйте ще раз.\n";
                                 toast.error(errorMessage);
 
                                 setIsClickBut(false);
@@ -117,14 +112,11 @@ const CallForm = () => {
                                 captchaRef.current.reset();
                             });
                     } else {
-                        toast.error(
-                            "Robot 🤖. Перезавантажте сторінку та спробуйте ще раз."
-                        );
+                        toast.error("Robot 🤖. Перезавантажте сторінку та спробуйте ще раз.");
                     }
                 })
                 .catch((error) => {
-                    const errorMessage =
-                        "Ой! Щось пішло не так :( Перезавантажте сторінку та спробуйте ще раз.\n";
+                    const errorMessage = "Ой! Щось пішло не так :( Перезавантажте сторінку та спробуйте ще раз.\n";
                     toast.error(errorMessage);
                 });
         }
@@ -133,19 +125,9 @@ const CallForm = () => {
     return (
         <section id="callform" className={css.callform}>
             <div className="container">
-                <motion.div
-                    className={css.wrapper}
-                    initial="hide"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                    variants={animation}
-                >
+                <motion.div className={css.wrapper} initial="hide" whileInView="show" viewport={{ once: true }} variants={animation}>
                     <Toaster />
-                    <form
-                        className={css.formCall}
-                        onSubmit={handleSubmit}
-                        id="callform"
-                    >
+                    <form className={css.formCall} onSubmit={handleSubmit} id="callform">
                         <h3 className={css.formTitle}>
                             Залиште свої дані,
                             <br /> ми вам передзвонимо
@@ -185,23 +167,13 @@ const CallForm = () => {
                         <label htmlFor="service" className={css.formLabel}>
                             Послуга<span className={css.accent}>*</span>
                         </label>
-                        <select
-                            id="service"
-                            name="service"
-                            className={css.formSelect}
-                            value={service}
-                            onChange={handleChange}
-                        >
+                        <select id="service" name="service" className={css.formSelect} value={service} onChange={handleChange}>
                             <option value="" disabled>
                                 Оберіть послугу
                             </option>
                             {prices?.length > 0 &&
                                 prices.map(({ id, description }) => (
-                                    <option
-                                        key={id}
-                                        value={description}
-                                        className={css.formOption}
-                                    >
+                                    <option key={id} value={description} className={css.formOption}>
                                         {description}
                                     </option>
                                 ))}
@@ -212,67 +184,30 @@ const CallForm = () => {
                         </label>
                         <div className={css.inputWrapper}>
                             <p className={css.phoneCodeText}>+38</p>
-                            <input
-                                className={css.formPhoneInput}
-                                name="phone"
-                                onChange={handlePhoneInput}
-                                value={phone}
-                                pattern="\(0\d{2}\) \d{3}-\d{2}-\d{2}"
-                                title="Телефонний номер повинен починатися з '+380' та мати 12 цифр"
-                                required
-                            />
+                            <input className={css.formPhoneInput} name="phone" onChange={handlePhoneInput} value={phone} pattern="\(0\d{2}\) \d{3}-\d{2}-\d{2}" title="Телефонний номер повинен починатися з '+380' та мати 12 цифр" required />
                         </div>
 
                         <label htmlFor="comment" className={css.formLabel}>
                             Повідомлення
                         </label>
-                        <textarea
-                            className={css.formTextarea}
-                            name="comment"
-                            id="comment"
-                            placeholder="Введіть текст повідомлення"
-                            value={comment}
-                            onChange={handleChange}
-                        />
+                        <textarea className={css.formTextarea} name="comment" id="comment" placeholder="Введіть текст повідомлення" value={comment} onChange={handleChange} />
 
-                        <ReCAPTCHA
-                            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                            ref={captchaRef}
-                        />
+                        <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY} ref={captchaRef} />
 
                         <div className={css.butWrapper}>
                             <div className={css.butWrap}>
-                                <Button
-                                    type="submit"
-                                    caption="Запис на прийом"
-                                    isClickBut={isClickBut}
-                                    isFetchOk={isFetchOk}
-                                />
+                                <Button type="submit" caption="Запис на прийом" isClickBut={isClickBut} isFetchOk={isFetchOk} />
                             </div>
                         </div>
 
                         <div className={css.policyWrapper}>
-                            <input
-                                type="checkbox"
-                                name="policy"
-                                id="policy"
-                                className={css.checkboxPolicy}
-                                checked={policy}
-                                onChange={handleChange}
-                            />
-                            <svg
-                                width="16"
-                                height="15"
-                                className={css.checkboxIcon}
-                            >
+                            <input type="checkbox" name="policy" id="policy" className={css.checkboxPolicy} checked={policy} onChange={handleChange} />
+                            <svg width="16" height="15" className={css.checkboxIcon}>
                                 <use href="./icons/symbol-defs.svg#icon-check"></use>
                             </svg>
                             <label htmlFor="policy" className={css.policyLabel}>
                                 Погоджуюся з
-                                <a
-                                    href="./PrivatePolicy.docx"
-                                    className={css.policyLink}
-                                >
+                                <a href="./PrivatePolicy.docx" className={css.policyLink}>
                                     {" "}
                                     Політикою конфіденційності
                                 </a>
