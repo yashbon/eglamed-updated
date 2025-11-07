@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation/Navigation";
 import MobileMenuBtn from "@/ui/MobileMenuBtn/MobileMenuBtn";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import css from "./Navbar.module.css";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -38,17 +39,11 @@ const Navbar = () => {
         <section className={navbar ? css.scrolled : css.navbar} ref={menuRef}>
             <div className="container">
                 <div className={css.navbarWrapper}>
-                    <a href="/">
+                    <Link href="/">
                         <Logo />
-                    </a>
-                    <Navigation
-                        isOpen={isOpen}
-                        handleSetActiveMenu={handleSetActiveMenu}
-                    />
-                    <MobileMenuBtn
-                        isActive={isOpen}
-                        onClick={() => setIsOpen(!isOpen)}
-                    />
+                    </Link>
+                    <Navigation isOpen={isOpen} handleSetActiveMenu={handleSetActiveMenu} />
+                    <MobileMenuBtn isActive={isOpen} onClick={() => setIsOpen(!isOpen)} />
                 </div>
             </div>
         </section>
