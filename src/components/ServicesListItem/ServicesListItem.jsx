@@ -1,4 +1,4 @@
-// import Image from "next/image";
+import Image from "next/image";
 import css from "./ServicesListItem.module.css";
 
 const ServicesListItem = ({ item }) => {
@@ -7,14 +7,7 @@ const ServicesListItem = ({ item }) => {
     return (
         <>
             <div className={css.circle}>
-                <img
-                    src={icon}
-                    width={50}
-                    height={50}
-                    alt="icon"
-                    // priority
-                    style={{ width: "50px", height: "50px" }}
-                />
+                <Image src={icon} width={50} height={50} alt="icon" priority style={{ width: "50px", height: "50px" }} />
             </div>
             <div className={css.descriptionWrapper}>
                 <h3 className={css.servicesTitle}>{title}</h3>
