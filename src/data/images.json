@@ -1,4 +1,5 @@
 [
+    { "src": "/images/hero_bg.jpg", "alt": "Hero Background" },
     { "src": "/images/Slideshow/slider_1.jpg", "alt": "EglaMed-1" },
     { "src": "/images/Slideshow/slider_2.jpg", "alt": "EglaMed-2" },
     { "src": "/images/Slideshow/slider_3.jpg", "alt": "EglaMed-3" },
