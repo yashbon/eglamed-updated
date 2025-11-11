@@ -16,6 +16,15 @@ const Top = () => {
                     </li>
 
                     <li className={css.contactsItem}>
+                        <a href="https://www.instagram.com/eglamed" className={css.contactsLink}>
+                            <svg className={css.contactsIcon} width="16px" height="16px">
+                                <use href="./icons/symbol-defs.svg#icon-instagram" />
+                            </svg>
+                            Instagram
+                        </a>
+                    </li>
+
+                    <li className={css.contactsItem}>
                         <a href="mailto:eglamed@ukr.net" className={css.contactsLink}>
                             <svg className={css.contactsIcon} width="16px" height="16px">
                                 <use href="./icons/symbol-defs.svg#icon-email" />
