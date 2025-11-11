@@ -14,7 +14,6 @@ const Top = () => {
                             +38 067 412 30 50
                         </a>
                     </li>
-
                     <li className={css.contactsItem}>
                         <a href="https://www.instagram.com/eglamed" className={css.contactsLink}>
                             <svg className={css.contactsIcon} width="16px" height="16px">
@@ -23,7 +22,14 @@ const Top = () => {
                             Instagram
                         </a>
                     </li>
-
+                    <li className={css.contactsItem}>
+                        <a href="https://www.facebook.com/profile.php?id=100082448462101" className={css.contactsLink}>
+                            <svg className={css.contactsIcon} width="16px" height="16px">
+                                <use href="./icons/symbol-defs.svg#icon-facebook-cirсlar" />
+                            </svg>
+                            Facebook
+                        </a>
+                    </li>
                     <li className={css.contactsItem}>
                         <a href="mailto:eglamed@ukr.net" className={css.contactsLink}>
                             <svg className={css.contactsIcon} width="16px" height="16px">
