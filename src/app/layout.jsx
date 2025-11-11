@@ -2,6 +2,9 @@ import { Arsenal } from "next/font/google";
 import meta from "@/data/meta";
 import "./globals.css";
 import { Providers } from "./providers";
+
+import Script from "next/script";
+import schemaData from "@/data/schemaData";
 // import { GoogleTagManager } from "@next/third-parties/google";
 
 const arsenal = Arsenal({
@@ -39,6 +42,13 @@ export default function RootLayout({ children }) {
             <body className={arsenal.className} suppressHydrationWarning={true}>
                 <Providers>{children}</Providers>
                 {/* <GoogleTagManager gtmId="G-HY7BR4SZYX" /> */}
+                <Script
+                    id="jsonld-eglamed"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(schemaData),
+                    }}
+                />
             </body>
         </html>
     );

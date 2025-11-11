@@ -10,10 +10,8 @@ import ButtonAppointment from "@/ui/ButtonAppointment/ButtonAppointment";
 const Navigation = ({ isOpen, handleSetActiveMenu }) => {
     useEffect(() => {
         if (isOpen) {
-            document.body.getElementsByTagName("main")[0].style.filter =
-                "blur(5px)";
-            document.body.getElementsByTagName("footer")[0].style.filter =
-                "blur(5px)";
+            document.body.getElementsByTagName("main")[0].style.filter = "blur(5px)";
+            document.body.getElementsByTagName("footer")[0].style.filter = "blur(5px)";
         } else {
             document.body.getElementsByTagName("main")[0].style.filter = "";
             document.body.getElementsByTagName("footer")[0].style.filter = "";
@@ -25,16 +23,7 @@ const Navigation = ({ isOpen, handleSetActiveMenu }) => {
             <ul className={css.navList}>
                 {navigation.map(({ id, src, text }) => (
                     <li key={id}>
-                        <Link
-                            to={src}
-                            spy={true}
-                            smooth={true}
-                            offset={10}
-                            duration={500}
-                            activeClass={css.active}
-                            className={css.navLink}
-                            onSetActive={() => handleSetActiveMenu()}
-                        >
+                        <Link to={src} spy={true} smooth={true} offset={10} duration={500} activeClass={css.active} className={css.navLink} onSetActive={() => handleSetActiveMenu()} href={`#${src}`}>
                             <span className={css.navText}>{text}</span>
                         </Link>
                     </li>
