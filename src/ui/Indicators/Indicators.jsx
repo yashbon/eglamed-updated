@@ -1,2 +1,2 @@
-const Indicators = () => <div className="indicator">&#8226;</div>;
+const Indicators = () => <li className="indicator">&#8226;</li>;
 export default Indicators;
