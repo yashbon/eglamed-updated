@@ -25,7 +25,7 @@ const ButtonScrollUp = () => {
 
     return (
         showButtonScrollUp && (
-            <button className={`${css.buttonScrollUp}`} onClick={goUp}>
+            <button className={`${css.buttonScrollUp}`} onClick={goUp} aria-label="Прокрутити вгору сторінки">
                 <svg className={css.buttonScrollUpIcon}>
                     <use href="./icons/symbol-defs.svg#icon-up"></use>
                 </svg>

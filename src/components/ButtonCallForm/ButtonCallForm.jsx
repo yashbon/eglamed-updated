@@ -11,15 +11,13 @@ const ButtonCallForm = () => {
         window.addEventListener("scroll", () => {
             const element = document.getElementById("callform");
             const domRect = element.getBoundingClientRect();
-            -150 < domRect.y && domRect.y < domRect.height - 150
-                ? setShowButtonCallForm(false)
-                : setShowButtonCallForm(true);
+            -150 < domRect.y && domRect.y < domRect.height - 150 ? setShowButtonCallForm(false) : setShowButtonCallForm(true);
         });
     });
 
     return (
         showButtonCallForm && (
-            <button className={css.ButtonCallForm} onClick={scrollToCallForm}>
+            <button className={css.ButtonCallForm} onClick={scrollToCallForm} aria-label="Відкрити форму зворотного дзвінка">
                 <svg className={css.ButtonCallFormIcon}>
                     <use href="./icons/symbol-defs.svg#icon-phone-call-back"></use>
                 </svg>

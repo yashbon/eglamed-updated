@@ -3,7 +3,7 @@ import css from "./Email.module.css";
 const Email = () => {
     return (
         <div>
-            <h4 className={css.emailTitle}>Електронна пошта</h4>
+            <h3 className={css.emailTitle}>Електронна пошта</h3>
             <a href="mailto:eglamed@ukr.net" className={css.emailLink}>
                 <svg className={css.emailIcon}>
                     <use href="./icons/symbol-defs.svg#icon-email"></use>
