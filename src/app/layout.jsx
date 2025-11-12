@@ -20,20 +20,20 @@ export const metadata = {
     title,
     description,
     keywords,
-    // openGraph: {
-    //   title,
-    //   description,
-    //   url,
-    //   images,
-    //   type,
-    //   icons,
-    // },
-    // twitter: {
-    //   title,
-    //   description,
-    //   card,
-    //   images,
-    // },
+    openGraph: {
+        title,
+        description,
+        url,
+        images,
+        type,
+        icons,
+    },
+    twitter: {
+        title,
+        description,
+        card,
+        images,
+    },
 };
 
 export default function RootLayout({ children }) {
