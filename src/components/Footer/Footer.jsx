@@ -25,7 +25,7 @@ const Footer = () => {
                             <Logo />
                         </div>
                         <div className={css.footerServices}>
-                            <h3 className={css.footerTitle}>Послуги</h3>
+                            <h2 className={css.footerTitle}>Послуги</h2>
                             <ul>
                                 {services.map((service) => (
                                     <li key={service.id} className={css.footerService}>
@@ -36,7 +36,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className={css.footerContacts}>
-                            <h3 className={css.footerTitle}>Контакти</h3>
+                            <h2 className={css.footerTitle}>Контакти</h2>
                             <ul className={css.footerContactsList}>
                                 <li>
                                     <Address />
