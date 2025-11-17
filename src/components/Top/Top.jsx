@@ -7,35 +7,35 @@ const Top = () => {
             <div className="container">
                 <ul className={css.contacts}>
                     <li className={css.contactsItem}>
-                        <a href="tel:+380674123050" className={css.contactsLink}>
-                            <svg className={css.contactsIcon} width="16px" height="16px">
-                                <use href="./icons/symbol-defs.svg#icon-phone" />
-                            </svg>
-                            +38 067 412 30 50
-                        </a>
-                    </li>
-                    <li className={css.contactsItem}>
                         <a href="https://www.instagram.com/eglamed" className={css.contactsLink}>
-                            <svg className={css.contactsIcon} width="16px" height="16px">
+                            <svg className={css.contactsIcon}>
                                 <use href="./icons/symbol-defs.svg#icon-instagram" />
                             </svg>
-                            Instagram
+                            <span className={css.contactsData}>Instagram</span>
                         </a>
                     </li>
                     <li className={css.contactsItem}>
                         <a href="https://www.facebook.com/profile.php?id=100082448462101" className={css.contactsLink}>
-                            <svg className={css.contactsIcon} width="16px" height="16px">
+                            <svg className={css.contactsIcon}>
                                 <use href="./icons/symbol-defs.svg#icon-facebook-cirсlar" />
                             </svg>
-                            Facebook
+                            <span className={css.contactsData}>Facebook</span>
+                        </a>
+                    </li>
+                    <li className={css.contactsItem}>
+                        <a href="tel:+380674123050" className={css.contactsLink}>
+                            <svg className={css.contactsIcon}>
+                                <use href="./icons/symbol-defs.svg#icon-phone" />
+                            </svg>
+                            <span className={css.contactsData}>+38 067 412 30 50</span>
                         </a>
                     </li>
                     <li className={css.contactsItem}>
                         <a href="mailto:eglamed@ukr.net" className={css.contactsLink}>
-                            <svg className={css.contactsIcon} width="16px" height="16px">
+                            <svg className={css.contactsIcon}>
                                 <use href="./icons/symbol-defs.svg#icon-email" />
                             </svg>
-                            eglamed@ukr.net
+                            <span className={css.contactsData}>eglamed@ukr.net</span>
                         </a>
                     </li>
                 </ul>
