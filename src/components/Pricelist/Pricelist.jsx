@@ -39,7 +39,7 @@ import { Link } from "react-scroll";
 import PricelistItem from "../PricelistItem/PricelistItem";
 import css from "./Pricelist.module.css";
 import { motion } from "framer-motion";
-import pricelist from "@/data/price.json";
+// import pricelist from "@/data/price.json";
 import SectionTitle from "@/ui/SectionTitle/SectionTitle";
 import { animation } from "@/data/animation";
 
@@ -55,6 +55,10 @@ export default function Pricelist() {
 
             if (Array.isArray(data)) {
                 setServices(data);
+                console.log(
+                    "✅ Fetched services:"
+                    // data
+                );
             } else {
                 console.error("❌ Invalid data:", data);
             }
@@ -69,9 +73,9 @@ export default function Pricelist() {
                 <SectionTitle title="Ціни" />
                 <motion.div className={css.pricelistWrapper} initial="hide" whileInView="show" viewport={{ once: true }} variants={animation}>
                     <ul className={css.pricelistList}>
-                        {pricelist?.length > 0 &&
-                            pricelist.map((item) => (
-                                <li key={item.id} className={css.pricelistItem}>
+                        {services?.length > 0 &&
+                            services.map((item, index) => (
+                                <li key={index} className={css.pricelistItem}>
                                     <Link to="callform" smooth={true} href="#callform">
                                         <PricelistItem item={item} />
                                     </Link>
