@@ -1,7 +1,7 @@
 import { useService } from "@/hooks/serviceContext";
-import css from "./PricelistItem.module.css";
+import css from "./PriceListItem.module.css";
 
-const PricelistItem = ({ item }) => {
+const PriceListItem = ({ item }) => {
     const { id = item.service_id, description, price } = item;
 
     let formatPrice = price;
@@ -36,4 +36,4 @@ const PricelistItem = ({ item }) => {
     );
 };
 
-export default PricelistItem;
+export default PriceListItem;

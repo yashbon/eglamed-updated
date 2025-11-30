@@ -36,31 +36,38 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
-import PricelistItem from "../PricelistItem/PricelistItem";
-import css from "./Pricelist.module.css";
+import PricelistItem from "../PriceListItem/PriceListItem";
+import css from "./PriceList.module.css";
 import { motion } from "framer-motion";
 // import pricelist from "@/data/price.json";
 import SectionTitle from "@/ui/SectionTitle/SectionTitle";
 import { animation } from "@/data/animation";
 
-export default function Pricelist() {
+export default function PriceList() {
     const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function fetchServices() {
-            const res = await fetch("/api/services");
-            const data = await res.json();
-            setLoading(false);
+            try {
+                const res = await fetch("/api/price");
+                const data = await res.json();
+                console.log("data", data);
 
-            if (Array.isArray(data)) {
-                setServices(data);
-                console.log(
-                    "✅ Fetched services:"
-                    // data
-                );
-            } else {
-                console.error("❌ Invalid data:", data);
+                setLoading(false);
+
+                if (Array.isArray(data)) {
+                    setServices(data);
+
+                    // 👉 Зберігаємо у localStorage
+                    localStorage.setItem("services", JSON.stringify(data));
+
+                    console.log("✅ Fetched price:", data);
+                } else {
+                    console.error("❌ Invalid data:", data);
+                }
+            } catch (error) {
+                console.error("❌ Fetch error:", error);
             }
         }
 

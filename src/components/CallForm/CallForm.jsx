@@ -14,9 +14,11 @@ import formatPhoneNumber from "@/services/formatPhoneNumber";
 import css from "./CallForm.module.css";
 
 const LS_KEY = "call_form";
+// const prices = JSON.parse(localStorage.getItem("services")) || [];
 
 const CallForm = () => {
     const { context, setContext } = useService();
+
     const initialValues = {
         name: "",
         surname: "",
