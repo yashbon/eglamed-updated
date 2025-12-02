@@ -16,6 +16,7 @@ const PriceListItem = ({ item }) => {
     const { context, setContext } = useService();
     const onClickPrice = () => {
         setContext(description);
+        console.log(description);
     };
 
     return (

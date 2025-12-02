@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
 import Button from "@/ui/Button/Button";
-import prices from "@/data/price";
+// import price from "@/data/price";
 import { animation } from "@/data/animation";
 import * as API from "@/services/api";
 import useLocalStorage from "@/hooks/useLocalStorage";
@@ -14,7 +14,6 @@ import formatPhoneNumber from "@/services/formatPhoneNumber";
 import css from "./CallForm.module.css";
 
 const LS_KEY = "call_form";
-// const prices = JSON.parse(localStorage.getItem("services")) || [];
 
 const CallForm = () => {
     const { context, setContext } = useService();
@@ -33,6 +32,8 @@ const CallForm = () => {
     const [isClickBut, setIsClickBut] = useState(false);
     const [isFetchOk, setIsFetchOk] = useState(false);
 
+    const [price, setPrice] = useLocalStorage("price", []);
+
     const captchaRef = useRef(null);
 
     useEffect(() => {
@@ -42,9 +43,25 @@ const CallForm = () => {
         }));
     }, [context]);
 
+    // useEffect(() => {
+    //     const storedData = JSON.parse(window.localStorage.getItem(LS_KEY)) || initialValues;
+    //     setData(storedData);
+    // }, [setData]);
+
+    // 1️⃣ Завантажуємо price тільки на клієнті
     useEffect(() => {
-        const storedData = JSON.parse(window.localStorage.getItem(LS_KEY)) || initialValues;
-        setData(storedData);
+        if (typeof window !== "undefined") {
+            const storedPrice = JSON.parse(localStorage.getItem("price") || "[]");
+            setPrice(storedPrice);
+        }
+    }, []);
+
+    // 2️⃣ Завантаження даних форми (LS_KEY)
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const storedData = JSON.parse(localStorage.getItem(LS_KEY) || "null");
+            if (storedData) setData(storedData);
+        }
     }, [setData]);
 
     const handleChange = (evt) => {
@@ -173,9 +190,9 @@ const CallForm = () => {
                             <option value="" disabled>
                                 Оберіть послугу
                             </option>
-                            {prices?.length > 0 &&
-                                prices.map(({ id, description }) => (
-                                    <option key={id} value={description} className={css.formOption}>
+                            {price?.length > 0 &&
+                                price.map(({ description }, index) => (
+                                    <option key={index} value={description} className={css.formOption}>
                                         {description}
                                     </option>
                                 ))}

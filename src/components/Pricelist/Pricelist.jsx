@@ -44,7 +44,7 @@ import SectionTitle from "@/ui/SectionTitle/SectionTitle";
 import { animation } from "@/data/animation";
 
 export default function PriceList() {
-    const [services, setServices] = useState([]);
+    const [price, setServices] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -60,7 +60,7 @@ export default function PriceList() {
                     setServices(data);
 
                     // 👉 Зберігаємо у localStorage
-                    localStorage.setItem("services", JSON.stringify(data));
+                    localStorage.setItem("price", JSON.stringify(data));
 
                     console.log("✅ Fetched price:", data);
                 } else {
@@ -80,8 +80,8 @@ export default function PriceList() {
                 <SectionTitle title="Ціни" />
                 <motion.div className={css.pricelistWrapper} initial="hide" whileInView="show" viewport={{ once: true }} variants={animation}>
                     <ul className={css.pricelistList}>
-                        {services?.length > 0 &&
-                            services.map((item, index) => (
+                        {price?.length > 0 &&
+                            price.map((item, index) => (
                                 <li key={index} className={css.pricelistItem}>
                                     <Link to="callform" smooth={true} href="#callform">
                                         <PricelistItem item={item} />
