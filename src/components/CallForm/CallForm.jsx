@@ -191,8 +191,8 @@ const CallForm = () => {
                                 Оберіть послугу
                             </option>
                             {price?.length > 0 &&
-                                price.map(({ description }, index) => (
-                                    <option key={index} value={description} className={css.formOption}>
+                                price.map(({ service_id, description }) => (
+                                    <option key={service_id} value={description} className={css.formOption}>
                                         {description}
                                     </option>
                                 ))}
