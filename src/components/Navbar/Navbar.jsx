@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Logo from "@/ui/Logo/Logo";
 import Navigation from "@/components/Navigation/Navigation";
 import MobileMenuBtn from "@/ui/MobileMenuBtn/MobileMenuBtn";
@@ -23,17 +23,37 @@ const Navbar = () => {
     };
 
     // зміна класів стилів при скролі десктоп
-    const changeNavbarStylesOnScroll = () => {
-        if (window.scrollY > 350) {
-            setNavbar(true);
-        } else {
-            setNavbar(false);
-        }
-    };
+    // const changeNavbarStylesOnScroll = () => {
+    //     if (window.scrollY > 350) {
+    //         setNavbar(true);
+    //     } else {
+    //         setNavbar(false);
+    //     }
+    // };
 
-    if (typeof window !== "undefined") {
+    // if (typeof window !== "undefined") {
+    //     window.addEventListener("scroll", changeNavbarStylesOnScroll);
+    // }
+        useEffect(() => {
+        const changeNavbarStylesOnScroll = () => {
+            if (window.scrollY > 350) {
+                setNavbar(true);
+            } else {
+                setNavbar(false);
+            }
+        };
+
+        // Додаємо слухач
         window.addEventListener("scroll", changeNavbarStylesOnScroll);
-    }
+
+        // Запускаємо один раз після монтування, щоб стилі підлаштувались
+        changeNavbarStylesOnScroll();
+
+        // Забираємо слухач при демонтажі
+        return () => {
+            window.removeEventListener("scroll", changeNavbarStylesOnScroll);
+        };
+    }, []);
 
     return (
         <section className={navbar ? css.scrolled : css.navbar} ref={menuRef}>
