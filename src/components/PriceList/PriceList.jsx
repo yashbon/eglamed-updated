@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
-import PricelistItem from "../PriceListItem/PricelistItem";
+import PriceListItem from "../PriceListItem/PriceListItem";
 import css from "./PriceList.module.css";
 import { motion } from "framer-motion";
 import SectionTitle from "@/ui/SectionTitle/SectionTitle";
@@ -63,7 +63,7 @@ export default function PriceList() {
                             price.map((item, index) => (
                                 <li key={index} className={css.pricelistItem}>
                                     <Link to="callform" smooth={true} href="#callform">
-                                        <PricelistItem item={item} />
+                                        <PriceListItem item={item} />
                                     </Link>
                                 </li>
                             ))}
