@@ -9,7 +9,7 @@ import SectionTitle from "@/ui/SectionTitle/SectionTitle";
 import { animation } from "@/data/animation";
 
 export default function PriceList() {
-    const [price, setServices] = useState([]);
+    const [price, setPrice] = useState([]);
     const [loading, setLoading] = useState(true);
     const [isClient, setIsClient] = useState(false);
 
@@ -27,7 +27,7 @@ export default function PriceList() {
                 setLoading(false);
 
                 if (Array.isArray(data)) {
-                    setServices(data);
+                    setPrice(data);
 
                     // 👉 localStorage тільки на клієнті
                     if (typeof window !== "undefined") {
