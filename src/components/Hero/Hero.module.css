@@ -5,7 +5,6 @@
   background-size: cover;
   background-position: top center;
   background-image: url("../../../public/images/hero_bg.webp");
-  /* background-image: url("../../../public/images/hero_bg.jpg"); // MUST DELETE */
   background-color: var(--hero-bg-color);
   position: relative;
 
