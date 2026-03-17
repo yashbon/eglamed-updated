@@ -8,8 +8,8 @@ import { motion } from "framer-motion";
 import SectionTitle from "@/ui/SectionTitle/SectionTitle";
 import { animation } from "@/data/animation";
 
-export default function PriceList() {
-    const [price, setPrice] = useState([]);
+export default function PriceList({price}) {
+    // const [price, setPrice] = useState([]);
     const [loading, setLoading] = useState(true);
     const [isClient, setIsClient] = useState(false);
 
@@ -18,33 +18,33 @@ export default function PriceList() {
         setIsClient(true);
     }, []);
 
-    useEffect(() => {
-        async function fetchServices() {
-            try {
-                const res = await fetch("/api/price");
-                const data = await res.json();
+    // useEffect(() => {
+    //     async function fetchServices() {
+    //         try {
+    //             const res = await fetch("/api/price");
+    //             const data = await res.json();
 
-                setLoading(false);
+    //             setLoading(false);
 
-                if (Array.isArray(data)) {
-                    setPrice(data);
+    //             if (Array.isArray(data)) {
+    //                 setPrice(data);
 
-                    // 👉 localStorage тільки на клієнті
-                    if (typeof window !== "undefined") {
-                        localStorage.setItem("price", JSON.stringify(data));
-                    }
+    //                 // 👉 localStorage тільки на клієнті
+    //                 if (typeof window !== "undefined") {
+    //                     localStorage.setItem("price", JSON.stringify(data));
+    //                 }
 
-                    console.log("✅ Fetched price:", data);
-                } else {
-                    console.error("❌ Invalid data:", data);
-                }
-            } catch (error) {
-                console.error("❌ Fetch error:", error);
-            }
-        }
+    //                 console.log("✅ Fetched price:", data);
+    //             } else {
+    //                 console.error("❌ Invalid data:", data);
+    //             }
+    //         } catch (error) {
+    //             console.error("❌ Fetch error:", error);
+    //         }
+    //     }
 
-        fetchServices();
-    }, []);
+    //     fetchServices();
+    // }, []);
 
     return (
         <section id="pricelist" className={css.pricelist}>

@@ -12,7 +12,10 @@ import ButtonCallForm from "@/components/ButtonCallForm/ButtonCallForm";
 import styles from "./page.module.css";
 import ProgressBar from "@/ui/ProgressBar/ProgressBar";
 
-export default function Home() {
+import { getPrice } from "./lib/getPrice";
+
+export default async function Home() {
+    const price = await getPrice();
     return (
         <>
             <ProgressBar />
@@ -22,8 +25,8 @@ export default function Home() {
                 <Services />
                 <Doctors />
                 <About />
-                <PriceList />
-                <CallForm />
+                <PriceList price={price}/>
+                <CallForm price={price}/>
                 <ContactUs />
             </main>
             <ButtonCallForm />

@@ -15,7 +15,7 @@ import css from "./CallForm.module.css";
 
 const LS_KEY = "call_form";
 
-const CallForm = () => {
+const CallForm = ({price}) => {
     const { context, setContext } = useService();
 
     const initialValues = {
@@ -32,7 +32,7 @@ const CallForm = () => {
     const [isClickBut, setIsClickBut] = useState(false);
     const [isFetchOk, setIsFetchOk] = useState(false);
 
-    const [price, setPrice] = useLocalStorage("price", []);
+    // const [price, setPrice] = useLocalStorage("price", []);
 
     const captchaRef = useRef(null);
 
@@ -49,12 +49,12 @@ const CallForm = () => {
     // }, [setData]);
 
     // 1️⃣ Завантажуємо price тільки на клієнті
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            const storedPrice = JSON.parse(localStorage.getItem("price") || "[]");
-            setPrice(storedPrice);
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (typeof window !== "undefined") {
+    //         const storedPrice = JSON.parse(localStorage.getItem("price") || "[]");
+    //         setPrice(storedPrice);
+    //     }
+    // }, []);
 
     // 2️⃣ Завантаження даних форми (LS_KEY)
     useEffect(() => {
