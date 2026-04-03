@@ -41,7 +41,7 @@ const CallForm = ({price}) => {
             ...prevState,
             ["service"]: context,
         }));
-    }, [context]);
+    }, [context, setData]);
 
     // useEffect(() => {
     //     const storedData = JSON.parse(window.localStorage.getItem(LS_KEY)) || initialValues;

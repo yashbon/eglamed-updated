@@ -11,12 +11,13 @@ import { animation } from "@/data/animation";
 export default function PriceList({price}) {
     // const [price, setPrice] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [isClient, setIsClient] = useState(false);
+    // const [isClient, setIsClient] = useState(false);
 
     // Позначаємо, що ми на клієнті
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
+    // useEffect(() => {
+    //     setIsClient(true);
+    // }, []);
+    // const isClient = typeof window !== "undefined";
 
     // useEffect(() => {
     //     async function fetchServices() {
@@ -59,9 +60,10 @@ export default function PriceList({price}) {
                 >
                     <ul className={css.pricelistList}>
                         {/* ❗ Рендеримо список тільки на клієнті */}
-                        {isClient && price.length > 0 &&
-                            price.map((item, index) => (
-                                <li key={index} className={css.pricelistItem}>
+                        {/* {isClient && price.length > 0 && */}
+                        {price.length > 0 &&
+                            price.map((item) => (
+                                <li key={item.service_id} className={css.pricelistItem}>
                                     <Link to="callform" smooth={true} href="#callform">
                                         <PriceListItem item={item} />
                                     </Link>
