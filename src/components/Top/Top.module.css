@@ -1,16 +1,9 @@
 .top {
-    /* display: none; */
     padding: 8px 0;
     background-color: #fe5f55;
 
     @media (min-width: 768px) {
-        /* display: block; */
         padding: 8px 0;
-        /* position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 3; */
         height: 40px;
         background-color: #fe5f55;
         color: var(--secondary-color);
@@ -24,7 +17,6 @@
     justify-content: space-around;
 
     @media (min-width: 768px) {
-
         justify-content: space-between;
         align-items: center;
     }
@@ -38,16 +30,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-
 }
 
 .contactsIcon {
     fill: currentColor;
     width: 24px;
     height: 24px;
-
 
     @media (min-width: 768px) {
         margin-right: 12px;

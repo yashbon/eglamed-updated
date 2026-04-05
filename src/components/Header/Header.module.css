@@ -8,24 +8,9 @@
         background: rgba(255, 255, 255, 0.8);
         }
     @media (max-width: 425px) {
-        /* position: static; */
         height: auto;
-        /* background-color: transparent; */
         background: rgba(255, 255, 255, .95);
         box-shadow: none;
     }
 
 }
-
-/* 
-.progressBar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 10px;
-    margin-bottom: 5px;
-    background: green;
-    transform-origin: 0%;
-    z-index: 11111;
-} */

@@ -9,43 +9,13 @@ import SectionTitle from "@/ui/SectionTitle/SectionTitle";
 import { animation } from "@/data/animation";
 
 export default function PriceList({price}) {
-    // const [price, setPrice] = useState([]);
-    const [loading, setLoading] = useState(true);
-    // const [isClient, setIsClient] = useState(false);
+    const [isClient, setIsClient] = useState(false);
 
     // Позначаємо, що ми на клієнті
-    // useEffect(() => {
-    //     setIsClient(true);
-    // }, []);
-    // const isClient = typeof window !== "undefined";
-
-    // useEffect(() => {
-    //     async function fetchServices() {
-    //         try {
-    //             const res = await fetch("/api/price");
-    //             const data = await res.json();
-
-    //             setLoading(false);
-
-    //             if (Array.isArray(data)) {
-    //                 setPrice(data);
-
-    //                 // 👉 localStorage тільки на клієнті
-    //                 if (typeof window !== "undefined") {
-    //                     localStorage.setItem("price", JSON.stringify(data));
-    //                 }
-
-    //                 console.log("✅ Fetched price:", data);
-    //             } else {
-    //                 console.error("❌ Invalid data:", data);
-    //             }
-    //         } catch (error) {
-    //             console.error("❌ Fetch error:", error);
-    //         }
-    //     }
-
-    //     fetchServices();
-    // }, []);
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setIsClient(true);
+    }, []);
 
     return (
         <section id="pricelist" className={css.pricelist}>
@@ -60,10 +30,9 @@ export default function PriceList({price}) {
                 >
                     <ul className={css.pricelistList}>
                         {/* ❗ Рендеримо список тільки на клієнті */}
-                        {/* {isClient && price.length > 0 && */}
-                        {price.length > 0 &&
-                            price.map((item) => (
-                                <li key={item.service_id} className={css.pricelistItem}>
+                        {isClient && price.length > 0 &&
+                            price.map((item, index) => (
+                                <li key={index} className={css.pricelistItem}>
                                     <Link to="callform" smooth={true} href="#callform">
                                         <PriceListItem item={item} />
                                     </Link>

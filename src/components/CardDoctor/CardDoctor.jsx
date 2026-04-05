@@ -23,8 +23,6 @@ const CardDoctor = ({ doctor }) => {
                     className={css.cardImage}
                     width={360}
                     height={535}
-                    // layout="responsive"
-                    // fill
                     sizes="100%"
                     style={{
                         width: "100%",

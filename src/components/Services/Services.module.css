@@ -1,6 +1,5 @@
 .services {
     background-color: var(--services-bg-color);
-
 }
 
 .servicesWrapper {
@@ -8,7 +7,6 @@
 
     @media (min-width: 768px) {
         padding-right: 0;
-
     }
 }
 
@@ -24,7 +22,6 @@
         font-weight: 700;
         margin-bottom: 64px;
     }
-
 }
 
 .servicesList {

@@ -9,10 +9,6 @@ const ContactUs = () => {
         <section id="contacts" className={css.sectionContacts}>
             <div className="container">
                 <SectionTitle title="Зв'яжіться з нами" />
-                {/* <p className="section-description">
-                    Far far away, behind the word mountains, far from the
-                    countries Vokalia and Consonantia
-                </p> */}
                 <div className={css.contactsContent}>
                     <div className={css.adressWrapper}>
                         <Address />
@@ -26,9 +22,7 @@ const ContactUs = () => {
                             width="100%"
                             height="450"
                             style={{ border: "none" }}
-                            // allowfullscreen=""
                             loading="lazy"
-                            // referrerpolicy="no-referrer-when-downgrade"
                         ></iframe>
                     </div>
                 </div>

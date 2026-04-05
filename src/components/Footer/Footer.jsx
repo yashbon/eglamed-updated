@@ -12,14 +12,6 @@ const Footer = () => {
         <footer className={css.footer}>
             <div className="container">
                 <div className={css.footerOverlay}>
-                    {/* <div className={css.footerDescription}> */}
-                    {/* <div className={css.footerLogo}>
-                            <Logo />
-                        </div> */}
-                    {/* <p className={css.footerText}>
-                            Наш досвід до Ваших послуг.
-                        </p> */}
-                    {/* </div> */}
                     <div className={css.footerContent}>
                         <div className={css.footerLogo}>
                             <Logo />

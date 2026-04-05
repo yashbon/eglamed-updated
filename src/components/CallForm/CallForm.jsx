@@ -32,8 +32,6 @@ const CallForm = ({price}) => {
     const [isClickBut, setIsClickBut] = useState(false);
     const [isFetchOk, setIsFetchOk] = useState(false);
 
-    // const [price, setPrice] = useLocalStorage("price", []);
-
     const captchaRef = useRef(null);
 
     useEffect(() => {

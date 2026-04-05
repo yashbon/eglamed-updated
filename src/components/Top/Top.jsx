@@ -1,4 +1,3 @@
-import Email from "../Email/Email";
 import css from "./Top.module.css";
 
 const Top = () => {
