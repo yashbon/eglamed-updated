@@ -13,12 +13,14 @@ import styles from "./page.module.css";
 import ProgressBar from "@/ui/ProgressBar/ProgressBar";
 
 import { getPrice } from "./lib/getPrice";
+import Top from "@/components/Top/Top";
 
 export default async function Home() {
     const price = await getPrice();
     return (
         <>
             <ProgressBar />
+            <Top />
             <Header />
             <main className={styles.main}>
                 <Hero />

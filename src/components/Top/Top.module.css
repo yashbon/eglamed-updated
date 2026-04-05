@@ -6,11 +6,11 @@
     @media (min-width: 768px) {
         /* display: block; */
         padding: 8px 0;
-        position: absolute;
+        /* position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        z-index: 3;
+        z-index: 3; */
         height: 40px;
         background-color: #fe5f55;
         color: var(--secondary-color);

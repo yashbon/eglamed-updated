@@ -16,7 +16,7 @@ const Header = () => {
                 style={{ scaleX: scrollYProgress }}
             /> */}
             {/* <ProgressBar /> */}
-            <Top />
+            {/* <Top /> */}
             <Navbar />
         </header>
     );
