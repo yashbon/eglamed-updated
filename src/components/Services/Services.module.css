@@ -5,9 +5,10 @@
 
 .servicesWrapper {
     padding-right: 80px;
-    @media (min-width: 768px){
+
+    @media (min-width: 768px) {
         padding-right: 0;
-    
+
     }
 }
 
@@ -30,6 +31,7 @@
 
     @media (min-width: 1200px) {
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
         gap: 60px 30px;
     }
