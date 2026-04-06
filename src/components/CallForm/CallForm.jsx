@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import axios from "axios";
 // import ReCAPTCHA from "react-google-recaptcha";
@@ -15,7 +15,7 @@ import css from "./CallForm.module.css";
 
 const LS_KEY = "call_form";
 
-const CallForm = ({price}) => {
+const CallForm = ({ price }) => {
     const { context, setContext } = useService();
 
     const initialValues = {
@@ -44,7 +44,9 @@ const CallForm = ({price}) => {
     // 2️⃣ Завантаження даних форми (LS_KEY)
     useEffect(() => {
         if (typeof window !== "undefined") {
-            const storedData = JSON.parse(localStorage.getItem(LS_KEY) || "null");
+            const storedData = JSON.parse(
+                localStorage.getItem(LS_KEY) || "null",
+            );
             if (storedData) setData(storedData);
         }
     }, [setData]);
@@ -69,7 +71,7 @@ const CallForm = ({price}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const token = captchaRef.current.getValue();
+        // const token = captchaRef.current.getValue();
 
         if (service === "") {
             toast.error(`Оберіть потрібну послугу з переліку`, {
@@ -77,61 +79,101 @@ const CallForm = ({price}) => {
                 position: "top-center",
             });
         } else if (!policy) {
-            toast.error(`Поставте "V" у полі "Погоджуюся з Політикою конфіденційності"`, { duration: 3000, position: "top-center" });
-        } else if (!token) {
-            toast.error(`Поставте "V" у полі "Я не робот"`, {
-                duration: 3000,
-                position: "top-center",
-            });
-        } else {
+            toast.error(
+                `Поставте "V" у полі "Погоджуюся з Політикою конфіденційності"`,
+                { duration: 3000, position: "top-center" },
+            );
+        } else //     if (!token) {
+        //     toast.error(`Поставте "V" у полі "Я не робот"`, {
+        //         duration: 3000,
+        //         position: "top-center",
+        //     });
+        // } else
+        {
             const message = `Ім'я: ${name}\nПрізвище: ${surname}\nТелефон: +38 ${phone}\nПослуга: ${service}\nКоментар: ${comment}`;
 
-            await axios
-                .post("https://eglamed.com.ua/recaptcha", { token })
-                .then((res) => {
-                    if (res.data === "Human 👨 👩") {
-                        setIsClickBut(true);
+            API.sendMessageToTelegram(message)
+                .then((response) => {
+                    setTimeout(() => {
+                        setIsClickBut(false);
+                    }, 500);
 
-                        API.sendMessageToTelegram(message)
-                            .then((response) => {
-                                setTimeout(() => {
-                                    setIsClickBut(false);
-                                }, 500);
+                    setIsFetchOk(true);
+                    setTimeout(() => {
+                        setIsFetchOk(false);
+                    }, 4000);
 
-                                setIsFetchOk(true);
-                                setTimeout(() => {
-                                    setIsFetchOk(false);
-                                }, 4000);
-
-                                toast.success("Дані відправлено успішно!");
-                            })
-                            .catch((error) => {
-                                const errorMessage = "Ой! Щось пішло не так :( Перезавантажте сторінку та спробуйте ще раз.\n";
-                                toast.error(errorMessage);
-
-                                setIsClickBut(false);
-                            })
-                            .finally(() => {
-                                setData(initialValues);
-                                captchaRef.current.reset();
-                            });
-                    } else {
-                        toast.error("Robot 🤖. Перезавантажте сторінку та спробуйте ще раз.");
-                    }
+                    toast.success("Дані відправлено успішно!");
                 })
                 .catch((error) => {
-                    const errorMessage = "Ой! Щось пішло не так :( Перезавантажте сторінку та спробуйте ще раз.\n";
+                    const errorMessage =
+                        "Ой! Щось пішло не так :( Перезавантажте сторінку та спробуйте ще раз.\n";
                     toast.error(errorMessage);
+
+                    setIsClickBut(false);
+                })
+                .finally(() => {
+                    setData(initialValues);
+                    // captchaRef.current.reset();
                 });
         }
+
+        //     await axios
+        //         .post("https://eglamed.com.ua/recaptcha", { token })
+        //         .then((res) => {
+        //             if (res.data === "Human 👨 👩") {
+        //                 setIsClickBut(true);
+
+        //                 API.sendMessageToTelegram(message)
+        //                     .then((response) => {
+        //                         setTimeout(() => {
+        //                             setIsClickBut(false);
+        //                         }, 500);
+
+        //                         setIsFetchOk(true);
+        //                         setTimeout(() => {
+        //                             setIsFetchOk(false);
+        //                         }, 4000);
+
+        //                         toast.success("Дані відправлено успішно!");
+        //                     })
+        //                     .catch((error) => {
+        //                         const errorMessage = "Ой! Щось пішло не так :( Перезавантажте сторінку та спробуйте ще раз.\n";
+        //                         toast.error(errorMessage);
+
+        //                         setIsClickBut(false);
+        //                     })
+        //                     .finally(() => {
+        //                         setData(initialValues);
+        //                         captchaRef.current.reset();
+        //                     });
+        //             } else {
+        //                 toast.error("Robot 🤖. Перезавантажте сторінку та спробуйте ще раз.");
+        //             }
+        //         })
+        //         .catch((error) => {
+        //             const errorMessage = "Ой! Щось пішло не так :( Перезавантажте сторінку та спробуйте ще раз.\n";
+        //             toast.error(errorMessage);
+        //         });
+        // }
     };
 
     return (
         <section id="callform" className={css.callform}>
             <div className="container">
-                <motion.div className={css.wrapper} initial="hide" whileInView="show" viewport={{ once: true }} variants={animation}>
+                <motion.div
+                    className={css.wrapper}
+                    initial="hide"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={animation}
+                >
                     <Toaster />
-                    <form className={css.formCall} onSubmit={handleSubmit} id="callform">
+                    <form
+                        className={css.formCall}
+                        onSubmit={handleSubmit}
+                        id="callform"
+                    >
                         <h3 className={css.formTitle}>
                             Залиште свої дані,
                             <br /> ми вам передзвонимо
@@ -171,13 +213,23 @@ const CallForm = ({price}) => {
                         <label htmlFor="service" className={css.formLabel}>
                             Послуга<span className={css.accent}>*</span>
                         </label>
-                        <select id="service" name="service" className={css.formSelect} value={service} onChange={handleChange}>
+                        <select
+                            id="service"
+                            name="service"
+                            className={css.formSelect}
+                            value={service}
+                            onChange={handleChange}
+                        >
                             <option value="" disabled>
                                 Оберіть послугу
                             </option>
                             {price?.length > 0 &&
                                 price.map(({ service_id, description }) => (
-                                    <option key={service_id} value={description} className={css.formOption}>
+                                    <option
+                                        key={service_id}
+                                        value={description}
+                                        className={css.formOption}
+                                    >
                                         {description}
                                     </option>
                                 ))}
@@ -188,30 +240,64 @@ const CallForm = ({price}) => {
                         </label>
                         <div className={css.inputWrapper}>
                             <p className={css.phoneCodeText}>+38</p>
-                            <input className={css.formPhoneInput} name="phone" onChange={handlePhoneInput} value={phone} pattern="\(0\d{2}\) \d{3}-\d{2}-\d{2}" title="Телефонний номер повинен починатися з '+380' та мати 12 цифр" required />
+                            <input
+                                className={css.formPhoneInput}
+                                name="phone"
+                                onChange={handlePhoneInput}
+                                value={phone}
+                                pattern="\(0\d{2}\) \d{3}-\d{2}-\d{2}"
+                                title="Телефонний номер повинен починатися з '+380' та мати 12 цифр"
+                                required
+                            />
                         </div>
 
                         <label htmlFor="comment" className={css.formLabel}>
                             Повідомлення
                         </label>
-                        <textarea className={css.formTextarea} name="comment" id="comment" placeholder="Введіть текст повідомлення" value={comment} onChange={handleChange} />
+                        <textarea
+                            className={css.formTextarea}
+                            name="comment"
+                            id="comment"
+                            placeholder="Введіть текст повідомлення"
+                            value={comment}
+                            onChange={handleChange}
+                        />
 
                         {/* <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY} ref={captchaRef} /> */}
 
                         <div className={css.butWrapper}>
                             <div className={css.butWrap}>
-                                <Button type="submit" caption="Запис на прийом" isClickBut={isClickBut} isFetchOk={isFetchOk} />
+                                <Button
+                                    type="submit"
+                                    caption="Запис на прийом"
+                                    isClickBut={isClickBut}
+                                    isFetchOk={isFetchOk}
+                                />
                             </div>
                         </div>
 
                         <div className={css.policyWrapper}>
-                            <input type="checkbox" name="policy" id="policy" className={css.checkboxPolicy} checked={policy} onChange={handleChange} />
-                            <svg width="16" height="15" className={css.checkboxIcon}>
+                            <input
+                                type="checkbox"
+                                name="policy"
+                                id="policy"
+                                className={css.checkboxPolicy}
+                                checked={policy}
+                                onChange={handleChange}
+                            />
+                            <svg
+                                width="16"
+                                height="15"
+                                className={css.checkboxIcon}
+                            >
                                 <use href="./icons/symbol-defs.svg#icon-check"></use>
                             </svg>
                             <label htmlFor="policy" className={css.policyLabel}>
                                 Погоджуюся з
-                                <a href="./PrivatePolicy.docx" className={css.policyLink}>
+                                <a
+                                    href="./PrivatePolicy.docx"
+                                    className={css.policyLink}
+                                >
                                     {" "}
                                     Політикою конфіденційності
                                 </a>
