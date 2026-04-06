@@ -7,5 +7,6 @@ export async function GET() {
     });
 
     const data = await response.json();
+    console.log("Price data:", data); // Додайте цей рядок для перевірки отриманих даних
     return Response.json(data);
 }
