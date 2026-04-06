@@ -1,11 +1,10 @@
 "use client";
 import axios from "axios";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 import React, { useState, useEffect, useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
 import Button from "@/ui/Button/Button";
-// import price from "@/data/price";
 import { animation } from "@/data/animation";
 import * as API from "@/services/api";
 import useLocalStorage from "@/hooks/useLocalStorage";
@@ -40,19 +39,6 @@ const CallForm = ({price}) => {
             ["service"]: context,
         }));
     }, [context, setData]);
-
-    // useEffect(() => {
-    //     const storedData = JSON.parse(window.localStorage.getItem(LS_KEY)) || initialValues;
-    //     setData(storedData);
-    // }, [setData]);
-
-    // 1️⃣ Завантажуємо price тільки на клієнті
-    // useEffect(() => {
-    //     if (typeof window !== "undefined") {
-    //         const storedPrice = JSON.parse(localStorage.getItem("price") || "[]");
-    //         setPrice(storedPrice);
-    //     }
-    // }, []);
 
     // 2️⃣ Завантаження даних форми (LS_KEY)
     useEffect(() => {
@@ -209,7 +195,7 @@ const CallForm = ({price}) => {
                         </label>
                         <textarea className={css.formTextarea} name="comment" id="comment" placeholder="Введіть текст повідомлення" value={comment} onChange={handleChange} />
 
-                        <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY} ref={captchaRef} />
+                        {/* <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY} ref={captchaRef} /> */}
 
                         <div className={css.butWrapper}>
                             <div className={css.butWrap}>
