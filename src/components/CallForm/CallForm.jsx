@@ -89,7 +89,7 @@ const CallForm = ({price}) => {
             await axios
                 .post(`/api/recaptcha`, { token })
                 .then((res) => {
-                    if (res.data === "Human 👨 👩") {
+                    if (res.success === true) {
                         setIsClickBut(true);
 
                         API.sendMessageToTelegram(message)
