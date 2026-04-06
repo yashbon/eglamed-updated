@@ -87,7 +87,7 @@ const CallForm = ({price}) => {
             const message = `Ім'я: ${name}\nПрізвище: ${surname}\nТелефон: +38 ${phone}\nПослуга: ${service}\nКоментар: ${comment}`;
 
             await axios
-                .post("https://eglamed.com.ua/recaptcha", { token })
+                .post(`/api/recaptcha`, { token })
                 .then((res) => {
                     if (res.data === "Human 👨 👩") {
                         setIsClickBut(true);
