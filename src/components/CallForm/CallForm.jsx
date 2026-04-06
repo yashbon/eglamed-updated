@@ -89,7 +89,8 @@ const CallForm = ({price}) => {
             await axios
                 .post(`/api/recaptcha`, { token })
                 .then((res) => {
-                    if (res.success === true) {
+                    console.log("reCAPTCHA response:", res.data); // Додайте цей рядок для перевірки відповіді reCAPTCHA
+                    if (res.data.success === true) {
                         setIsClickBut(true);
 
                         API.sendMessageToTelegram(message)
