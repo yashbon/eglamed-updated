@@ -17,6 +17,7 @@ import Top from "@/components/Top/Top";
 
 export default async function Home() {
     const price = await getPrice();
+
     return (
         <>
             <ProgressBar />
@@ -27,8 +28,8 @@ export default async function Home() {
                 <Services />
                 <Doctors />
                 <About />
-                <PriceList price={price}/>
-                <CallForm price={price}/>
+                <PriceList price={price} />
+                <CallForm price={price} />
                 <ContactUs />
             </main>
             <ButtonCallForm />

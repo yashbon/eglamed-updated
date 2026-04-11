@@ -1,5 +1,3 @@
-// "use client";
-
 import Navbar from "../Navbar/Navbar";
 import css from "./Header.module.css";
 

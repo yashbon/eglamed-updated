@@ -23,7 +23,9 @@ const Navigation = ({ isOpen, handleSetActiveMenu }) => {
             <ul className={css.navList}>
                 {navigation.map(({ id, src, text }) => (
                     <li key={id}>
-                        <Link to={src} spy={true} smooth={true} offset={10} duration={500} activeClass={css.active} className={css.navLink} onSetActive={() => handleSetActiveMenu()} href={`#${src}`}>
+                        <Link to={src} spy={true} smooth={true} offset={10} duration={500} activeClass={css.active} className={css.navLink} onSetActive={() => handleSetActiveMenu()} 
+                        // href={`#${src}`}
+                        >
                             <span className={css.navText}>{text}</span>
                         </Link>
                     </li>

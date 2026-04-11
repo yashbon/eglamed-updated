@@ -132,7 +132,9 @@ const CallForm = ({price}) => {
             <div className="container">
                 <motion.div className={css.wrapper} initial="hide" whileInView="show" viewport={{ once: true }} variants={animation}>
                     <Toaster />
-                    <form className={css.formCall} onSubmit={handleSubmit} id="callform">
+                    <form className={css.formCall} onSubmit={handleSubmit} 
+                    id="callform-form"
+                    >
                         <h3 className={css.formTitle}>
                             Залиште свої дані,
                             <br /> ми вам передзвонимо
