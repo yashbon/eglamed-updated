@@ -1,25 +1,23 @@
-// const scrollToCallForm = () => {
-//     const element = document.getElementById("callform");
-//     element.scrollIntoView({
-//         behavior: "smooth",
-//     });
-// };
-
-// export default scrollToCallForm;
-
-// services/scrollToCallForm.js
-const scrollToElement = (id = "callform") => {
+const scrollToCallForm = (id = "callform") => {
     if (typeof window === "undefined") return;
 
-    // Видаляємо '#' якщо він є в id
+    // Очищення ID та захист від об'єкта події
     const targetId = typeof id === 'string' ? id.replace('#', '') : "callform";
     const element = document.getElementById(targetId);
 
     if (element) {
         const performScroll = () => {
-            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-            // Твоє перевірене число
-            const offsetPosition = elementPosition + 20; 
+            const header = document.querySelector('header') || document.querySelector('[class*="header"]');
+            const headerHeight = header ? header.offsetHeight : 0;
+
+            // Твої ідеальні налаштування зміщення
+            const extraOffset = window.innerWidth < 768 ? 120 : 100;
+
+            const elementPosition = element.getBoundingClientRect().top;
+            const currentScroll = window.pageYOffset;
+            
+            // Твоя переможна формула
+            const offsetPosition = elementPosition + currentScroll - headerHeight + extraOffset;
 
             window.scrollTo({
                 top: offsetPosition,
@@ -27,10 +25,12 @@ const scrollToElement = (id = "callform") => {
             });
         };
 
+        // Перший запуск для миттєвої реакції
         performScroll();
-        // Подвійний виклик для компенсації Framer Motion
-        setTimeout(performScroll, 300);
+
+        // Повторний запуск через 400мс для фіксації на мобільних та після анімацій
+        setTimeout(performScroll, 400);
     }
 };
 
-export default scrollToElement;
+export default scrollToCallForm;
