@@ -1,35 +1,42 @@
 const scrollToCallForm = (id = "callform") => {
     if (typeof window === "undefined") return;
 
-    // Очищення ID та захист від об'єкта події
     const targetId = typeof id === 'string' ? id.replace('#', '') : "callform";
     const element = document.getElementById(targetId);
 
     if (element) {
-        const performScroll = () => {
+        // Створюємо функцію-обгортку для точного розрахунку
+        const getOffset = () => {
             const header = document.querySelector('header') || document.querySelector('[class*="header"]');
             const headerHeight = header ? header.offsetHeight : 0;
-
-            // Твої ідеальні налаштування зміщення
             const extraOffset = window.innerWidth < 768 ? 120 : 100;
-
-            const elementPosition = element.getBoundingClientRect().top;
-            const currentScroll = window.pageYOffset;
             
-            // Твоя переможна формула
-            const offsetPosition = elementPosition + currentScroll - headerHeight + extraOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+            // Отримуємо АКТУАЛЬНУ позицію елемента відносно верху сторінки
+            const rect = element.getBoundingClientRect();
+            return rect.top + window.pageYOffset - headerHeight + extraOffset;
         };
 
-        // Перший запуск для миттєвої реакції
-        performScroll();
+        // 1. ПЕРШИЙ СКРОЛ (швидка реакція)
+        window.scrollTo({
+            top: getOffset(),
+            behavior: 'smooth'
+        });
 
-        // Повторний запуск через 400мс для фіксації на мобільних та після анімацій
-        setTimeout(performScroll, 400);
+        // 2. ДРУГИЙ СКРОЛ (через 600мс — коли дані точно зарендерились)
+        setTimeout(() => {
+            window.scrollTo({
+                top: getOffset(), // ПЕРЕРАХОВУЄМО позицію заново!
+                behavior: 'smooth'
+            });
+        }, 600);
+
+        // 3. ТРЕТІЙ СКРОЛ (контрольний постріл для дуже повільного інтернету)
+        setTimeout(() => {
+            window.scrollTo({
+                top: getOffset(),
+                behavior: 'smooth'
+            });
+        }, 1200);
     }
 };
 
