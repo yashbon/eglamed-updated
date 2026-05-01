@@ -9,8 +9,9 @@ const Hero = () => {
                 src={heroBg}
                 alt="Гінекологічна клініка EglaMed у Житомирі"
                 fill={true}
-                // loading="eager"
+                loading="eager"
                 preload={true} // Новий стандарт для Next.js 16
+                fetchPriority="high" // Вказує браузеру, що це зображення має високий пріоритет завантаження
                 sizes="100vw"
                 className={css.bg}
             />
