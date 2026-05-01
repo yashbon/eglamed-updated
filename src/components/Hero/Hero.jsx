@@ -7,9 +7,11 @@ const Hero = () => {
         <section id="main" className={css.hero}>
             <Image
                 src={heroBg}
-                alt="EglaMed"
+                alt="Гінекологічна клініка EglaMed у Житомирі"
                 fill={true}
-                loading="eager"
+                // loading="eager"
+                preload={true} // Новий стандарт для Next.js 16
+                sizes="100vw"
                 className={css.bg}
             />
             <div className="container">
