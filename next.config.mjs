@@ -19,7 +19,6 @@ const nextConfig = {
 const cspHeader = `
     upgrade-insecure-requests;
     default-src 'self';
-    default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' www.google.com www.gstatic.com www.googletagmanager.com;
     style-src 'self' 'unsafe-inline' www.gstatic.com;
     frame-src 'self' www.google.com;
