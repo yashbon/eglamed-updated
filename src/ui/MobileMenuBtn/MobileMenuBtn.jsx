@@ -8,6 +8,7 @@ const MobileMenuBtn = ({ isActive, onClick }) => {
                 isActive ? css.menuToggleBtnActive : css.menuToggleBtnUnactive
             }
             onClick={() => onClick()}
+            aria-label={isActive ? "Закрити меню" : "Відкрити меню"}
         >
             <span></span>
         </button>

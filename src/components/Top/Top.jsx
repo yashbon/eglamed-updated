@@ -6,7 +6,7 @@ const Top = () => {
             <div className="container">
                 <ul className={css.contacts}>
                     <li className={css.contactsItem}>
-                        <a href="https://www.instagram.com/eglamed" className={css.contactsLink}>
+                        <a href="https://www.instagram.com/eglamed" className={css.contactsLink} aria-label="Instagram">
                             <svg className={css.contactsIcon}>
                                 <use href="./icons/symbol-defs.svg#icon-instagram" />
                             </svg>
@@ -14,7 +14,7 @@ const Top = () => {
                         </a>
                     </li>
                     <li className={css.contactsItem}>
-                        <a href="https://www.facebook.com/profile.php?id=100082448462101" className={css.contactsLink}>
+                        <a href="https://www.facebook.com/profile.php?id=100082448462101" className={css.contactsLink} aria-label="Facebook">
                             <svg className={css.contactsIcon}>
                                 <use href="./icons/symbol-defs.svg#icon-facebook-cirсlar" />
                             </svg>
@@ -22,7 +22,7 @@ const Top = () => {
                         </a>
                     </li>
                     <li className={css.contactsItem}>
-                        <a href="tel:+380674123050" className={css.contactsLink}>
+                        <a href="tel:+380674123050" className={css.contactsLink} aria-label="Phone">
                             <svg className={css.contactsIcon}>
                                 <use href="./icons/symbol-defs.svg#icon-phone" />
                             </svg>
@@ -30,7 +30,7 @@ const Top = () => {
                         </a>
                     </li>
                     <li className={css.contactsItem}>
-                        <a href="mailto:eglamed@ukr.net" className={css.contactsLink}>
+                        <a href="mailto:eglamed@ukr.net" className={css.contactsLink} aria-label="Email">
                             <svg className={css.contactsIcon}>
                                 <use href="./icons/symbol-defs.svg#icon-email" />
                             </svg>
