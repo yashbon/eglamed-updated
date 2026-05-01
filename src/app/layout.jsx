@@ -9,7 +9,7 @@ import schemaData from "@/data/schemaData";
 const arsenal = Arsenal({
     weight: ["400", "700"],
     style: ["normal"],
-    subsets: ["latin"],
+    subsets: ["latin", "cyrillic"],
     display: "swap",
 });
 
@@ -23,7 +23,7 @@ export const metadata = {
         title,
         description,
         url,
-        siteName: 'EglaMed',
+        siteName: "EglaMed",
         images: images,
         type,
         icons,
@@ -39,21 +39,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="uk">
-            {/* Google Analytics Tag */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-0VE2L3CVCD"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-0VE2L3CVCD');
-          `}
-        </Script>
-            <body className={arsenal.className} suppressHydrationWarning={true}>
-                <Providers>{children}</Providers>
+            <head>
                 <Script
                     id="jsonld-eglamed"
                     type="application/ld+json"
@@ -61,6 +47,25 @@ export default function RootLayout({ children }) {
                         __html: JSON.stringify(schemaData),
                     }}
                 />
+            </head>
+
+            {/* Google Analytics Tag */}
+            <body className={arsenal.className}
+                suppressHydrationWarning={true}
+             >
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=G-0VE2L3CVCD"
+                    strategy="afterInteractive"
+                />
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-0VE2L3CVCD');
+                    `}
+                </Script>
+                <Providers>{children}</Providers>
             </body>
         </html>
     );
