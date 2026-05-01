@@ -16,7 +16,9 @@ import css from "./CallForm.module.css";
 const LS_KEY = "call_form";
 
 const CallForm = ({price}) => {
-    const { context, setContext } = useService();
+    const { context, 
+        // setContext 
+    } = useService();
 
     const initialValues = {
         name: "",
