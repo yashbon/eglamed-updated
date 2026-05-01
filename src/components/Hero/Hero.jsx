@@ -8,8 +8,8 @@ const Hero = () => {
             <Image
                 src={heroBg}
                 alt="EglaMed"
-                fill
-                priority
+                fill={true}
+                loading="eager"
                 className={css.bg}
             />
             <div className="container">
