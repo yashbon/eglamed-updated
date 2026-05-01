@@ -14,7 +14,10 @@
             "alt": "Гінекологічна клініка EglaMed — Житомир"
         }
     ],
-    "icons": { "icon": "/favicon.ico" },
+    "icons": { 
+        "icon": "/favicon.ico",
+        "apple":"public/images/EglaMed_Logo.png"
+    },
     "card": "summary_large_image",
     "publisher": "EglaMed",
     "author": "EglaMed",
