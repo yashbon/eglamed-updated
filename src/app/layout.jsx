@@ -38,6 +38,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="uk">
+            {/* Google Analytics Tag */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-0VE2L3CVCD"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-0VE2L3CVCD');
+          `}
+        </Script>
             <body className={arsenal.className} suppressHydrationWarning={true}>
                 <Providers>{children}</Providers>
                 <Script
