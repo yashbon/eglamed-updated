@@ -225,7 +225,8 @@
 
   text-decoration-line: underline;
 
-  color: var(--accent-color);
+  /* color: var(--accent-color); */
+  color: #da3036;
 }
 
 .inputWrapper {

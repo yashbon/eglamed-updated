@@ -12,9 +12,11 @@
 }
 
 .addressText {
-    color: var(--accent-color);
+    /* color: var(--accent-color); */
+    color: #da3036;
     font-style: normal;
 }
+
 
 .addressLink {
     display: flex;

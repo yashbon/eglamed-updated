@@ -8,7 +8,7 @@
     border-radius: 25px;
     background-color: var(--accent-color);
 
-    color: var(--secondary-color);
+    color: var(--link-btn-text-color);
     font-size: 18px;
     font-weight: 400;
     line-height: 1.8;
