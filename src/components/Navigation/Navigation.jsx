@@ -96,7 +96,7 @@ const Navigation = ({ isOpen, handleSetActiveMenu }) => {
                                     handleSetActiveMenu(false);
                                 }
 
-                                // 3. Запускаємо твою перевірену функцію
+                                // 3. Запускаємо перевірену функцію
                                 scrollToCallForm(src);
 
                                 // 4. (Опціонально) Оновлюємо URL в адресному рядку без перезавантаження
@@ -108,7 +108,17 @@ const Navigation = ({ isOpen, handleSetActiveMenu }) => {
                     </li>
                 ))}
                 <li>
-                    <ButtonAppointment onClick={scrollToCallForm} />
+                    <ButtonAppointment
+                        onClick={() => {
+                            // 1. Скролимо до форми
+                            scrollToCallForm();
+
+                            // 2. Закриваємо мобільне меню (якщо воно є)
+                            if (typeof handleSetActiveMenu === "function") {
+                                handleSetActiveMenu(false);
+                            }
+                        }}
+                    />
                 </li>
             </ul>
         </nav>
