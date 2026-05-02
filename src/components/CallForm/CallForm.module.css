@@ -20,12 +20,12 @@
 
 .formTitle {
   margin-bottom: 20px;
-
+  color: #c34941;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--accent-color);
+  /* color: var(--accent-color); */
   text-align: center;
 
   @media (min-width: 768px) {

@@ -6,6 +6,7 @@ import React, { useState, useEffect, useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
 import Button from "@/ui/Button/Button";
+import SectionTitle from "@/ui/SectionTitle/SectionTitle";
 import { animation } from "@/data/animation";
 import * as API from "@/services/api";
 import useLocalStorage from "@/hooks/useLocalStorage";
@@ -142,6 +143,7 @@ const CallForm = ({ price }) => {
     return (
         <section id="callform" className={css.callform}>
             <div className="container">
+                <SectionTitle title="Запис на прийом" />
                 <motion.div
                     className={css.wrapper}
                     initial="hide"
