@@ -87,7 +87,7 @@
 
 .formSelect {
   composes: formInput;
-  color: var(--text-color);
+  /* color: var(--text-color); */
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -100,7 +100,33 @@
   white-space: normal;
   /* For Firefox: */
   text-overflow: ellipsis;
+}
 
+/* 1. Стиль для підказки (коли нічого не вибрано) */
+.formSelect:invalid {
+  /* color: #c34941 !important; /* Ваш червоний колір */
+  color: var(--text-color);
+}
+
+/* 2. Стиль для вибраного значення (коли вже обрали послугу) */
+.formSelect:valid {
+  color: var(--darken-color) /*!important; /* Ваш основний колір тексту */
+}
+
+/* 3. Скидаємо колір для списку опцій при відкритті */
+.formSelect option {
+  color: var(--darken-color);
+  background-color: #fff;
+}
+
+/* 4. Окремо для самої підказки всередині відкритого списку */
+/* .formOptionDisabled { */
+  /* color: #c34941 !important; Ваш червоний колір для підказки в списку */
+/* } */
+
+/* 5. Для інших опцій у списку (якщо хочете змінити їх колір) */
+.formOption {
+  color: var(--darken-color);
 }
 
 .formSelect::-ms-expand {
