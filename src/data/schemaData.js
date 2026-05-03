@@ -6,6 +6,7 @@ const schemaData = {
     name: "Клініка EglaMed",
     image: "https://eglamed.com.ua/images/EglaMed_Logo.png",
     logo: "https://eglamed.com.ua/images/EglaMed_Logo.png",
+    priceRange: "300UAH - 5500UAH", // діапазон цін на послуги клініки
     url: "https://eglamed.com.ua",
     telephone: "+380674123050",
     // description: "Гінекологія в Житомирі. Повний комплекс гінекологічних послуг: УЗД, відеокольпоскопія, лікування безпліддя, клімактеричних розладів, ендокринних порушень, естетична гінекологія та інші.",
@@ -18,7 +19,6 @@ const schemaData = {
         "Ендокринологія",
         "Лазерна епіляція",
     ],
-    priceRange: "300UAH - 5500UAH", // діапазон цін на послуги клініки
     address: {
         "@type": "PostalAddress",
         streetAddress: "вул. Лесі Українки, 13-а",
