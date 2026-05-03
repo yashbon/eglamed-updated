@@ -2,6 +2,7 @@ import { Arsenal } from "next/font/google";
 import meta from "@/data/meta";
 import "./globals.css";
 import { Providers } from "./providers";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import Script from "next/script";
 import schemaData from "@/data/schemaData";
@@ -50,15 +51,13 @@ export default function RootLayout({ children }) {
             </head>
 
             {/* Google Analytics Tag */}
-            <body className={arsenal.className}
-                suppressHydrationWarning={true}
-             >
+            <body className={arsenal.className} suppressHydrationWarning={true}>
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-0VE2L3CVCD"
                     // strategy="afterInteractive"
                     strategy="lazyOnload"
                 />
-                <Script id="google-analytics" 
+                {/* <Script id="google-analytics" 
                     // strategy="afterInteractive"
                     strategy="lazyOnload"
                     >
@@ -68,8 +67,10 @@ export default function RootLayout({ children }) {
                         gtag('js', new Date());
                         gtag('config', 'G-0VE2L3CVCD');
                     `}
-                </Script>
+                </Script> */}
                 <Providers>{children}</Providers>
+                {/* Офіційний компонент автоматично оптимізує завантаження */}
+                <GoogleAnalytics gaId="G-0VE2L3CVCD" />
             </body>
         </html>
     );
