@@ -10,6 +10,10 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: cspHeader.replace(/\n/g, ''), // Прибираємо переноси рядків для коректної роботи
           },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate', 
+          },
         ],
       },
     ];
