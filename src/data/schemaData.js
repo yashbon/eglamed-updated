@@ -18,6 +18,7 @@ const schemaData = {
         "Ендокринологія",
         "Лазерна епіляція",
     ],
+    priceRange: "300UAH - 5500UAH", // діапазон цін на послуги клініки
     address: {
         "@type": "PostalAddress",
         streetAddress: "вул. Лесі Українки, 13-а",
