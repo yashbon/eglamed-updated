@@ -9,8 +9,8 @@ const scrollToCallForm = (id = "callform") => {
         const getOffset = () => {
             const header = document.querySelector('header') || document.querySelector('[class*="header"]');
             const headerHeight = header ? header.offsetHeight : 0;
-            const extraOffset = window.innerWidth < 768 ? 120 : 100;
-            
+            const extraOffset = window.innerWidth <= 425 ? 120 : 90;
+
             // Отримуємо АКТУАЛЬНУ позицію елемента відносно верху сторінки
             const rect = element.getBoundingClientRect();
             return rect.top + window.pageYOffset - headerHeight + extraOffset;
