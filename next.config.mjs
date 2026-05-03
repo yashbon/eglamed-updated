@@ -1,18 +1,34 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   /* config options here */
+  images: {
+    qualities: [25, 50, 75, 85],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.googletagmanager.com',
+      },
+    ],
+  },
   async headers() {
     return [
       {
+        // 1. Загальні заголовки безпеки для всіх сторінок
         source: '/(.*)',
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: cspHeader.replace(/\n/g, ''), // Прибираємо переноси рядків для коректної роботи
+            value: cspHeader.replace(/\n/g, ''),
           },
+        ],
+      },
+      {
+        // 2. Ефективне кешування для статичних ресурсів (Зображення, Шрифти, Іконки)
+        source: '/(.*).(jpg|jpeg|png|webp|svg|woff2|ico)',
+        headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=0, must-revalidate', 
+            value: 'public, max-age=31536000, immutable', 
           },
         ],
       },
