@@ -35,6 +35,7 @@ const CallForm = ({ price }) => {
     const { name, surname, phone, service, comment, policy } = data;
     const [isClickBut, setIsClickBut] = useState(false);
     const [isFetchOk, setIsFetchOk] = useState(false);
+    const [isInteracted, setIsInteracted] = useState(false);
 
     const captchaRef = useRef(null);
 
@@ -141,7 +142,7 @@ const CallForm = ({ price }) => {
     };
 
     return (
-        <section id="callform" className={css.callform}>
+        <section id="callform" className={css.callform} onMouseEnter={() => setIsInteracted(true)} onTouchStart={() => setIsInteracted(true)}>
             <div className="container">
                 <SectionTitle title="Запис на прийом" />
                 <motion.div
@@ -251,10 +252,13 @@ const CallForm = ({ price }) => {
                             onChange={handleChange}
                         />
 
+                        {isInteracted && (
                         <ReCAPTCHA
                             sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                             ref={captchaRef}
+                            strategy="lazyOnload"
                         />
+                        )}
 
                         <div className={css.butWrapper}>
                             <div className={css.butWrap}>
