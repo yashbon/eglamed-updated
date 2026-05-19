@@ -1,9 +1,11 @@
 export async function getPrice() {
-//   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/price`, {
-  const res = await fetch("https://dev.calendar.eglamed.com.ua/api/price", {
+  const PRICE_URL = process.env.NEXT_PUBLIC_SITE_URL
+  
+ const res = await fetch(PRICE_URL, {
     cache: "no-store"
   });
-
+  console.log(res);
+  
   if (!res.ok) {
     throw new Error("Failed to fetch price");
   }
